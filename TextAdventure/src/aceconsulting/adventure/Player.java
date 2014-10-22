@@ -9,10 +9,16 @@ public class Player {
 		this.currentLoc = startLoc;		
 	}
 	
+	public Location getCurrentLoc() {
+		return currentLoc;
+	}
+
 	public void moveTo(Location newLoc)
 	{
 		this.currentLoc = newLoc;
 	}
+
+
 	
 
 }
