@@ -3,38 +3,43 @@ package aceconsulting.adventure;
 import java.util.List;
 import java.util.Scanner;
 
-public class TextUI {
-	public TextUI(Player user){
-		System.out.println("Welcome to Simple Text Adventure! (Type 'q' to exit.)");
-		Scanner console = new Scanner(System.in);
-		String input = "";
-		while (!input.equals("q")) {
-			// print room description
-			Location currentLoc = user.getCurrentLoc();
-			System.out.println(currentLoc.getDescription());
-			
-			// show choices
-			List<MovementChoice> moveChoices = currentLoc.getMovementChoices();
-			for (int i = 0; i < moveChoices.size(); i++) {
-				MovementChoice mc = moveChoices.get(i);
+public class TextUI implements UI {
+	Scanner console;
+	public TextUI()
+	{
+		console = new Scanner(System.in);		
+	}
+	
+	@Override
+	public void display(String msg) {
+		System.out.println(msg);
+		
+	}
+
+	/**
+	 * Returns the chosen player choice , or null if they want to quit.
+	 */
+	@Override
+	public Choice getChoice(List<Choice> choices) {
+		
+		while (true) {
+			for (int i = 0; i < choices.size(); i++) {
+				Choice mc = choices.get(i);
 				System.out.print((i+1) + ". ");
 				System.out.println(mc.getDescription());
 			}
-
+	
 			// ask for input			
-			input = console.nextLine();
+			String input = console.nextLine();
 			try {
 				int choiceNum = Integer.parseInt(input);
-				if(choiceNum>moveChoices.size()||choiceNum<=0){
+				if(choiceNum>choices.size()||choiceNum<=0){
 					System.out.println("INVALID CHOICE! Choose one of the options below.");
 					System.out.println();
 				}
 				else{
-				MovementChoice chosenMove = moveChoices.get(choiceNum-1);
-				Location newLoc = chosenMove.getDestination();
-				user.moveTo(newLoc);
+					return  choices.get(choiceNum-1);
 				}
-				
 			} catch (NumberFormatException ex) {
 				if (!input.equals("q")) {
 					System.out.println();
@@ -42,9 +47,15 @@ public class TextUI {
 					System.out.println("Please choose a number from the list, or type 'q' to quit.");
 					System.out.println();
 				}
+				else {
+					return null;					
+				}
 			}
+
 		}
-		System.out.println("Cowardly adventurer -- you are not up to the challenge!");
-		console.close();
+		
+		
 	}
+
+	
 }
