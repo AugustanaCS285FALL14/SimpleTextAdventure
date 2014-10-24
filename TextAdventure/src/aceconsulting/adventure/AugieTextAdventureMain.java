@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class AugieTextAdventureMain {
 
 	public static void main(String[] args) {
-		World theWorld = new AugieDuckWorld();
+		World theWorld = new NoScopeLand();
 		Player thePlayer = new Player(theWorld.getStartLocation());
 		
 		System.out.println("Welcome to Simple Text Adventure! (Type 'q' to exit.)");
