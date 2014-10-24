@@ -3,6 +3,8 @@ package aceconsulting.adventure;
 import java.util.ArrayList;
 import java.util.List;
 
+import aceconsulting.adventure.items.Item;
+
 public class Location {
 
 	private List<MovementChoice> movementChoices;

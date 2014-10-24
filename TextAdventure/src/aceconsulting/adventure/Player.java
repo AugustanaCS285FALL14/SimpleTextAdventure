@@ -1,12 +1,19 @@
 package aceconsulting.adventure;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import aceconsulting.adventure.items.Item;
+
 public class Player {
 	// add inventory later
 	private Location currentLoc;
+	private List<Item> itemInventory;
 	
 	public Player(Location startLoc)
 	{
-		this.currentLoc = startLoc;		
+		this.currentLoc = startLoc;	
+		this.itemInventory = new ArrayList<Item>();
 	}
 	
 	public Location getCurrentLoc() {
@@ -18,6 +25,18 @@ public class Player {
 		this.currentLoc = newLoc;
 	}
 
+	public void addItem(Item item) {
+		itemInventory.add(item);
+	}
+	
+	public void removeItem(Item item) {
+		itemInventory.remove(item);
+	}
+	
+	public void useItem(Item item) {
+		int itemIndex = itemInventory.indexOf(item);
+		itemInventory.get(itemIndex).use(this);
+	}
 
 	
 

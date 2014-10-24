@@ -1,4 +1,6 @@
-package aceconsulting.adventure;
+package aceconsulting.adventure.items;
+
+import aceconsulting.adventure.Player;
 
 public abstract class Item {
 	private String name;
@@ -40,8 +42,10 @@ public abstract class Item {
 		this.howManyUsesRemain--;
 		if (this.howManyUsesRemain == 0)
 		{
-			//TODO: remove from player inventory?
+			user.removeItem(this);
 		}
 		// after this method, the subclass will do the actual use() stuff...
 	}
+	
+	public abstract String examineItem();
 }
