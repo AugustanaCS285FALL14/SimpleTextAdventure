@@ -1,6 +1,10 @@
-package aceconsulting.adventure;
+package aceconsulting.adventure.worlds;
 
 import java.util.ArrayList;
+
+import aceconsulting.adventure.Location;
+import aceconsulting.adventure.MovementChoice;
+import aceconsulting.adventure.World;
 
 public class NoScopeLand extends World {
 

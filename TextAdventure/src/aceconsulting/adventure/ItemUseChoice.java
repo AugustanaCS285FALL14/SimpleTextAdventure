@@ -4,8 +4,8 @@ import aceconsulting.adventure.items.Item;
 
 public class ItemUseChoice extends ItemChoice {
 
-	public ItemUseChoice(String description, Item theItem) {
-		super(description, theItem);
+	public ItemUseChoice(Item theItem) {
+		super("Use " + theItem.getName(), theItem);
 	}
 
 }

@@ -33,9 +33,9 @@ public class Player {
 		itemInventory.remove(item);
 	}
 	
-	public void useItem(Item item) {
-		int itemIndex = itemInventory.indexOf(item);
-		itemInventory.get(itemIndex).use(this);
+	public List<Item> getInventoryItems()
+	{
+		return new ArrayList(itemInventory); // protective copy...
 	}
 
 	

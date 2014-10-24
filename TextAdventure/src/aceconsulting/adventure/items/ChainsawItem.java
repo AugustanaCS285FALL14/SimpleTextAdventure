@@ -1,6 +1,7 @@
 package aceconsulting.adventure.items;
 
 import aceconsulting.adventure.Player;
+import aceconsulting.adventure.UI;
 
 public class ChainsawItem extends Item {
 
@@ -8,9 +9,8 @@ public class ChainsawItem extends Item {
 		super(name,1);
 	}
 
-	public void use(Player user) {
-		super.use(user);
-		
+	@Override
+	public void performUseAction(Player user, UI ui) {
 		// Game logic for chainsaw duel
 	}
 	

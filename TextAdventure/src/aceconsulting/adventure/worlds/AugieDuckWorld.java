@@ -1,6 +1,12 @@
-package aceconsulting.adventure;
+package aceconsulting.adventure.worlds;
 
 import java.util.ArrayList;
+
+import aceconsulting.adventure.Location;
+import aceconsulting.adventure.MovementChoice;
+import aceconsulting.adventure.World;
+import aceconsulting.adventure.items.*;
+
 
 public class AugieDuckWorld extends World {
 
@@ -12,8 +18,12 @@ public class AugieDuckWorld extends World {
 		
 		classroom.addMovementChoice(new MovementChoice("Exit to hallway", hallway));
 		classroom.addMovementChoice(new MovementChoice("Pop out the window", balcony));
+		
 		balcony.addMovementChoice(new MovementChoice("Go back through the broken window", classroom));
-		hallway.addMovementChoice(new MovementChoice("Go back into the classroom", classroom));	
+		balcony.addItem(new RingItem("an emerald ring", 1));
+		
+		hallway.addMovementChoice(new MovementChoice("Go back into the classroom", classroom));
+		hallway.addItem(new BasiliskItem("a menacing basilisk"));
 
 		locations = new ArrayList<Location>();
 		locations.add(classroom);

@@ -1,6 +1,7 @@
 package aceconsulting.adventure.items;
 
 import aceconsulting.adventure.Player;
+import aceconsulting.adventure.UI;
 
 public abstract class Item {
 	private String name;
@@ -33,19 +34,17 @@ public abstract class Item {
 		return this.howManyUsesRemain;
 	}
 	
-	/** special item subclasses should override this method,
-	 * and they should ALWAYS call super.use() at the start of their method?
-	 * @param user
-	 */
-	public void use(Player user)
+	public final void use(Player user, UI ui)
 	{
 		this.howManyUsesRemain--;
 		if (this.howManyUsesRemain == 0)
 		{
 			user.removeItem(this);
 		}
+		performUseAction(user, ui);
 		// after this method, the subclass will do the actual use() stuff...
 	}
+	protected abstract void performUseAction(Player user, UI ui);
 	
 	public abstract String examineItem();
 }

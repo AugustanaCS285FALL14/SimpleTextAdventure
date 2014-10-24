@@ -41,4 +41,8 @@ public class Location {
 	{
 		itemsHere.remove(item);
 	}
+	public List<Item> getItems()
+	{
+		return new ArrayList<Item>(itemsHere); // return a (protective) copy
+	}
 }

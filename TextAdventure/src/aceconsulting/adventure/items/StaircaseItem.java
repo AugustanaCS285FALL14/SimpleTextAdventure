@@ -1,6 +1,7 @@
 package aceconsulting.adventure.items;
 
 import aceconsulting.adventure.Player;
+import aceconsulting.adventure.UI;
 
 public class StaircaseItem extends Item {
 
@@ -8,9 +9,9 @@ public class StaircaseItem extends Item {
 		super(name,1);
 	}
 
-	public void use(Player user) {
-		super.use(user);
-		String resule = examineItem();
+	@Override
+	public void performUseAction(Player user, UI ui) {
+		ui.display("You couldn't use this staircase if your life depended on it.");
 	}
 	
 	@Override
