@@ -6,11 +6,13 @@ import java.util.List;
 public class Location {
 
 	private List<MovementChoice> movementChoices;
+	private List<Item> itemsHere;
 	private String description;
 
 	public Location(String description) {
 		this.description = description;
 		this.movementChoices = new ArrayList<MovementChoice>();
+		this.itemsHere = new ArrayList<Item>();
 	}
 	
 	public String getDescription() {
@@ -28,5 +30,13 @@ public class Location {
 	public void addMovementChoice(MovementChoice mChoice)
 	{
 		movementChoices.add(mChoice);
+	}
+	public void addItem(Item item)
+	{
+		itemsHere.add(item);
+	}
+	public void removeItem(Item item)
+	{
+		itemsHere.remove(item);
 	}
 }
